@@ -1,4 +1,13 @@
 import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Servir arquivos estáticos da pasta frontend
+app.use('/frontend', express.static(path.join(__dirname, '../frontend')));
+
 import dotenv from 'dotenv';
 import { google } from 'googleapis';
 import { createClient } from '@supabase/supabase-js';
